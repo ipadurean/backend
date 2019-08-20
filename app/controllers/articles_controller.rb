@@ -5,4 +5,6 @@ class ArticlesController < ApplicationController
     render json: @articles, include: [:comments, :ratings]
 
   end
+
+  
 end
