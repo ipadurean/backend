@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(content: params[:content], user_id:params[:user_id], article_id:params[:article_id])
+    @comment = Comment.create(comment_params)
     render json: @comment
   end
 
@@ -14,5 +14,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.delete
     render json: { message: "Successfully deleted"}
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit!
   end
 end
