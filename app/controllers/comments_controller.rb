@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(params)
-    @rating.save
+    @comment = Comment.create(content: params[:content], user_id:params[:user_id], article_id:params[:article_id])
     render json: @comment
   end
 
