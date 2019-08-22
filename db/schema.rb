@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_142135) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "value"
     t.integer "user_id"
     t.integer "article_id"
     t.datetime "created_at", null: false
